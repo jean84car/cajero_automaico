@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <ui:define name="contenido">
+        <p:growl id="growl" life="3000" />
+        
+        <div style="width: 100%;text-align: center; padding: 0 30%;">
+            <h:form>
+                <p:panelGrid style="margin:20px 0;width: 30%">
+
+                    <p:row>
+                        <p:column>
+                            <p:inputNumber id="idenominacion" value="#{registrarController.denominacion.denominacion}"  decimalPlaces="0" 
+                                                 placeholder="Denominacion" required="true" requiredMessage="La denominacion es requerida"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <p:inputNumber id="icantidad" value="#{registrarController.denominacion.cantidad}"  decimalPlaces="0" 
+                                                 placeholder="Cantidad" required="true" requiredMessage="La cantidad es requerida" />
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <p:commandButton value="Registrar" action="#{registrarController.registrarDenominacion()}" update="idenominacion icantidad tdenominaciones growl" />
+                        </p:column>
+                    </p:row>
+
+                </p:panelGrid>
+
+                <p:dataTable id="tdenominaciones" var="denominacion" value="#{registrarController.denominaciones}" emptyMessage="No hay registros" style="width: 30%;">
+                    <p:column headerText="Denominación" >
+                        <h:outputText value="#{denominacion.denominacion}" />
+                    </p:column>
+
+                    <p:column headerText="Cantidad" >
+                        <h:outputText value="#{denominacion.cantidad}" />
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>    
+        </div>
+
+    </ui:define>
+        
+</ui:composition>

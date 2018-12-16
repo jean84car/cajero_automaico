@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <ui:define name="contenido">
+        <p:growl id="growlr" life="5000" />
+        
+        <div style="width: 100%;text-align: center; padding: 0 30%;">
+            <h:form>
+                <p:panelGrid style="margin:20px 0;width: 30%">
+
+                    <p:row>
+                        <p:column>
+                            <p:inputNumber id="ivalor" value="#{retirarController.valorRetirar}" decimalPlaces="0" 
+                                placeholder="Valor a retirar" required="true" requiredMessage="El valor a retirar es requerido."/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column>
+                            <p:commandButton value="Iniciar Transaccion" action="#{retirarController.retirar()}" update="ivalor growlr" />
+                        </p:column>
+                    </p:row>
+
+                </p:panelGrid>
+
+            </h:form>    
+        </div>
+
+    </ui:define>
+        
+</ui:composition>
