@@ -66,6 +66,10 @@ public class RegistrarController implements Serializable{
         this.denominaciones = denominaciones;
     }
     
+    /*
+        metodo registrarDenominacion
+        Envia solicitud al servicio para el registro de las denominaciones
+    */
     public void registrarDenominacion(){
         try{
             log.info("REGISTRAR :: REQUEST :: "+denominacion);

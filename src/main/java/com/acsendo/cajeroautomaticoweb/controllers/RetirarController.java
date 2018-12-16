@@ -37,6 +37,10 @@ public class RetirarController implements Serializable{
         this.valorRetirar = valorRetirar;
     }
 
+    /*
+        metodo retirar
+        Envia solicitud al servicio para el retiro por parte del cliente
+    */
     public void retirar(){
         if(valorRetirar == null || valorRetirar.compareTo(BigDecimal.ZERO) <= 0){
             UtilFaces.addMessage("Error consultando las denominaciones", FacesMessage.SEVERITY_ERROR);
